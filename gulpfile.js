@@ -47,7 +47,7 @@ var config = {
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend_Devil"
+    logPrefix: "Front-end malv"
 };
 
 gulp.task('html:build', function() {
