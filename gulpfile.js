@@ -12,13 +12,14 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     babel = require('gulp-babel'),
+    browserify = require('gulp-browserify'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
 
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
-        js: 'build/js/',
+        js: 'build/script/',
         css: 'build/css/',
         img: 'build/img/',
         fonts: 'build/fonts/'
@@ -61,9 +62,15 @@ gulp.task('js:build', function() {
     gulp.src(path.src.js) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        .pipe(babel({
-            presets: ["es2015"]
+        .pipe(browserify({
+            insertGlobals: true,
+            debug: !gulp.env.production
         }))
+        .pipe(
+            babel({
+                presets: ["es2015"]
+            })
+        )
         // .pipe(uglify()) //Сожмем наш js
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
