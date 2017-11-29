@@ -1,10 +1,10 @@
-const about = {
-    name: "about",
-    match: "about",
+const rules = { //main rules
+    name: "rules",
+    match: "",
     onBeforeEnter: () => {},
     onEnter: () => {
-        let divApp = document.querySelector("#app");
-        divApp.innerHTML = `
+        let divRules = document.querySelector(".divRules");
+        divRules.innerHTML = `
         <h3>hello my dear friend</h3>
         <p>It's realy good app</p>
       `;
@@ -12,4 +12,4 @@ const about = {
     onLeave: () => {}
 };
 
-export { about };
+export { rules };

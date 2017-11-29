@@ -20,7 +20,7 @@ var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
         js: 'build/script/',
-        css: 'build/css/',
+        css: 'build/style/',
         img: 'build/img/',
         fonts: 'build/fonts/'
     },
@@ -45,9 +45,9 @@ var config = {
     server: {
         baseDir: "./build"
     },
-    tunnel: true,
+    tunnel: false,
     host: 'localhost',
-    port: 9000,
+    port: 3000, //9000
     logPrefix: "Front-end malv"
 };
 
