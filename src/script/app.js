@@ -1,7 +1,7 @@
 import Router from './utils/Router';
 // import EventBus from './path/to/EventBus.js';
 
-import { rules } from './routes/about';
+import { rules } from './routes/rules';
 import { game } from './routes/game';
 import { score } from './routes/score';
 
