@@ -1,7 +1,52 @@
 .header {
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    font-size: 25px;
 }
 
-.divRules {
-    margin: 0 auto;
+.content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.divContent {
+    font-size: 25px;
+}
+
+.gameField {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    border: solid 3px rgba(52, 168, 184, 0.527);
+    margin-top: 50%;
+}
+
+.tableScore {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 20px;
+    background: rgba(52, 168, 184, 0.527);
+    color: #d13838;
+    border: 10px solid #ECE9E0;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+th {
+    font-size: 20px;
+    padding: 10px;
+}
+
+td {
+    background: #F5D7BF;
+    padding: 10px;
 }

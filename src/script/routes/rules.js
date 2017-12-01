@@ -3,10 +3,15 @@ const rules = { //main rules
     match: "",
     onBeforeEnter: () => {},
     onEnter: () => {
-        let divRules = document.querySelector(".divRules");
-        divRules.innerHTML = `
-        <h3>hello my dear friend</h3>
-        <p>It's realy good app</p>
+        let divContent = document.querySelector(".divContent");
+        divContent.innerHTML = `
+        <h1>Hi!</h1>
+        <h2>Some rules and main task:</h2>
+        <ul>
+        <li>The main task is to avoid enemies.</li>
+        <li>Stay alive as long as possible.</li>
+        </ul>
+        <h2>Good luck Santa!</h2>
       `;
     },
     onLeave: () => {}

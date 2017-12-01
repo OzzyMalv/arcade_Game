@@ -3,11 +3,23 @@ const score = { //main rules
     match: "score",
     onBeforeEnter: () => {},
     onEnter: () => {
-        debugger;
-        let divRules = document.querySelector(".divRules");
-        divRules.innerHTML = `
-        <h3>score</h3>
-        <p>It's realy good app</p>
+        let divContent = document.querySelector(".divContent");
+        divContent.innerHTML = `
+        <table class="tableScore">
+        <caption>Best scores</caption>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kim</td>
+            <td>3000</td>
+          </tr>
+        </tbody>
+      </table>
       `;
     },
     onLeave: () => {}

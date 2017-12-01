@@ -1,13 +1,11 @@
-const game = { //main rules
+const game = {
     name: "game",
     match: "game",
     onBeforeEnter: () => {},
     onEnter: () => {
-        debugger;
-        let divRules = document.querySelector(".divRules");
-        divRules.innerHTML = `
-        <h3>game</h3>
-        <p>It's realy good app</p>
+        let divContent = document.querySelector(".divContent");
+        divContent.innerHTML = `
+        <div class="gameField"></div>
       `;
     },
     onLeave: () => {}
