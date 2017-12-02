@@ -22,10 +22,7 @@
 }
 
 .gameField {
-    width: 500px;
-    height: 300px;
     position: relative;
-    border: solid 3px rgba(52, 168, 184, 0.527);
     margin-top: 50%;
 }
 
@@ -49,4 +46,8 @@ th {
 td {
     background: #F5D7BF;
     padding: 10px;
+}
+
+canvas {
+    border: 2px solid #d3d3d3;
 }

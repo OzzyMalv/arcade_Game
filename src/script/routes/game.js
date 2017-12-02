@@ -5,7 +5,7 @@ const game = {
     onEnter: () => {
         let divContent = document.querySelector(".divContent");
         divContent.innerHTML = `
-        <div class="gameField"></div>
+        <div class="gameField"><canvas></canvas></div>
       `;
     },
     onLeave: () => {}
