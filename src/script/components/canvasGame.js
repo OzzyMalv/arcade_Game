@@ -1,11 +1,9 @@
 class Game {
-    constructor(fieldWidth, fieldHeight) {
-        this.fieldHeight = fieldHeight;
-        this.fieldWidth = fieldWidth;
-        fieldHeight = 1000;
-        fieldWidth = 1000;
-        let canvas = document.querySelector('canvas');
-        let ctx = canvas.getContext("2d");
+    constructor() {
+
+        let fieldHeight = 1000;
+        let fieldWidth = 1000;
+        let canvas = document.querySelector('.canvas');
     }
 
     init() {
@@ -14,8 +12,9 @@ class Game {
 
     gameField(fieldHeight, fieldWidth) {
         debugger;
-        this.canvas.width = FIELD_WIDTH;
-        this.canvas.height = FIELD_HEIGHT;
+        this.canvas.width = fieldHeight;
+        this.canvas.height = fieldWidth;
+        console.log(fieldHeight, fieldWidth);
     }
 
 
