@@ -1,3 +1,5 @@
+import Game from "../components/Game";
+
 const game = {
     name: "game",
     match: "game",
@@ -7,6 +9,7 @@ const game = {
         divContent.innerHTML = `
         <div class="gameField"><canvas class="canvasJS"></canvas></div>
       `;
+        new Game();
     },
     onLeave: () => {}
 };
