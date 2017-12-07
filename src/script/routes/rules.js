@@ -13,6 +13,15 @@ const rules = { //main rules
         </ul>
         <h2>Good luck Santa!</h2>
       `;
+        // localStorage.setItem('players', JSON.stringify([{
+        //         name: 'andrey',
+        //         score: '300'
+        //     },
+        //     {
+        //         name: 'alex',
+        //         score: '299'
+        //     }
+        // ]))
     },
     onLeave: () => {}
 };

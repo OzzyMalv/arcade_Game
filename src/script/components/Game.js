@@ -1,14 +1,34 @@
 import Person from './Person';
+import Enemies from './Enemies';
+import DB from '../utils/DB';
 
 class Game {
-    constructor() {
+    constructor(name) {
+        this.count = 0;
         this.fieldHeight = 500;
         this.fieldWidth = 500;
         this.canvas = document.querySelector('.canvasJS');
         this.ctx = this.canvas.getContext('2d');
         this.person = new Person();
+        this.arrayEnemies = [];
+        this.intervalID;
+        this.intervalID2;
+        this.name = name;
         this.start();
     }
+    startTick() {
+        let timer = document.querySelector(".timer");
+        this.intervalID = setInterval(() => {
+            this.count++;
+            timer.innerHTML = this.count;
+        }, 1000)
+
+        this.intervalID2 = setInterval(() => {
+            this.arrayEnemies.push(new Enemies(this.ctx))
+        }, 5000)
+
+    }
+
 
     start() {
         this.canvas.width = this.fieldWidth;
@@ -21,13 +41,31 @@ class Game {
             this.keys[e.keyCode] = e.type == 'keydown';
         });
         window.addEventListener('keyup', e => {
-            if (e.keyCode == 38 || e.keyCode == 40) return;
             this.keys[e.keyCode] = e.type == 'keydown';
         });
+        this.startTick();
     }
-    stop() {
+    stop(index) {
+        clearInterval(this.intervalID);
+        clearInterval(this.intervalID2);
         clearInterval(this.interval);
+        this.writeScore();
+        // window.location.hash = "score";
+
     }
+
+    writeScore() {
+        let db = new DB();
+        let lastPlayer = { name: this.name, score: this.count };
+        db.fetchItem("players")
+            .then((arrayPlayers) => {
+                arrayPlayers.push(lastPlayer)
+                return arrayPlayers;
+            })
+            .then(arrayPlayers => db.setItem("players", arrayPlayers))
+            .catch(() => db.setItem("players", [lastPlayer]))
+    }
+
     clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -41,6 +79,14 @@ class Game {
                 down: this.keys && this.keys[40]
             }, { width: this.fieldWidth, height: this.fieldHeight })
             .update(this.ctx);
+        this.arrayEnemies.map((item, index) => {
+
+            if ((Math.abs(item.x - this.person.x) <= 25) && (Math.abs(item.y - this.person.y) <= 25)) {
+                this.stop();
+
+            }
+            item.newPos({ width: this.fieldWidth, height: this.fieldHeight }).update(this.ctx)
+        });
     }
 }
 

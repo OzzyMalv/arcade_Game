@@ -7,9 +7,11 @@ const game = {
     onEnter: () => {
         let divContent = document.querySelector(".divContent");
         divContent.innerHTML = `
+        <div class="timer"></div>        
         <div class="gameField"><canvas class="canvasJS"></canvas></div>
       `;
-        new Game();
+        let name = prompt("Whats u name pidr? ", "Bill");
+        new Game(name);
     },
     onLeave: () => {}
 };
