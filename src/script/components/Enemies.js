@@ -1,7 +1,5 @@
 class Enemies {
     constructor(ctx, width = 30, height = 30, color = 'red', x = 100, y = 100) {
-        // this.canvas = document.querySelector('.canvasJS');
-        // this.ctx = this.canvas.getContext('2d');
         this.ctx = ctx;
         this.width = width;
         this.height = height;
